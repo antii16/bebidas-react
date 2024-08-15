@@ -1,50 +1,80 @@
-# React + TypeScript + Vite
+# Buscar receta
+<img src="public/pagina.PNG"/>
+<p>App que consiste en la búsqueda la receta de una bebida,
+dando como resultado una ventana modal en que aparece el 
+producto elegido con la opción de añadirlo a Favoritos, del cual
+también puedes eliminarlo.</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## React Router
+<p>En este proyecto se introducirá React Router.</p>
 
-Currently, two official plugins are available:
+### ¿Qué es?
+<p> Es una librería muy cómun en REACT con múltiples páginas </p>
+Es de los creadores de Remix Run. 
+En las últimas versiones es prácticamente un framework de React. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Características
 
-## Expanding the ESLint configuration
+<ul>
+  <li>Permitirá crear secciones con diferentes urls tales como /tienda, etc.</li>
+  <li>En versiones recientes agregaron la posibilidad de consultar API's y 
+procesar formularios.</li>
+</ul>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Instalar
 
-- Configure the top-level `parserOptions` property like this:
+Cliquea <a href="https://www.npmjs.com/package/react-router-dom">aquí</a>.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### NavLink o Link
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+La única diferencia es que NavLink tiene un acceso a un callback en el classname, útil para resaltar, por ejemplo, la página donde se encuentra el usuario. 
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Hook: useLocation
+
+Este hook nos devuelve el objeto `location`. Dentro de este objeto hay información sobre la URL actual. Esta información se guarda en el `pathname`.
+
+## TailwindCSS. Theming
+
+Nuevo concepto: theming
+
+En la sección de `theme` del archivo `tailwind.config.js` es donde puedes definir la paleta de colores, escalas, fuentes, breakpoints, y más. 
+
+En este proyecto se utiliza para añadir imágenes de fondo. 
+
+## ZUSTAND
+
+### Múltiples stores
+
+Son útiles conforme las apps van creciendo o son más complejas. 
+
+Existen dos formas de manejar múltiples stores:
+
+<ul>
+  <li>Crear diferentes stores.</li>
+  <li>Slice Pattern.</li>
+</ul>
+
+En este proyecto se utilizará `Slice Pattern`.
+
+#### ¿Qué es Slice Pattern?
+Es una forma de dividir tus stores en pequeñas piezas y unirlas en un store principal (`useAppStore`)
+
+También se utiliza en Redux Toolkit.
+
+#### Tener en cuenta en este proyecto: 
+
+<ol>
+  <li>set -> permite escribir en el state. </li>
+  <li>...a -> copia de todos los argumentos (set, get)</li>
+</ol>
+
+## API
+Para acceder a la api 
+cliquea <a href="https://www.thecocktaildb.com/api.php">aquí</a>.
+
+## Headless UI 
+
+Utilizada para la ventana modal.
+
+Click <a href="https://headlessui.com/react/dialog">aquí</a>.
