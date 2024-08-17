@@ -1,15 +1,30 @@
-# Buscar receta
-<img src="public/pagina.PNG"/>
-<p>App que consiste en la búsqueda la receta de una bebida,
-dando como resultado una ventana modal en que aparece el 
-producto elegido con la opción de añadirlo a Favoritos, del cual
-también puedes eliminarlo.</p>
+# Buscador de Bebidas y Recetas con React Router DOM
+<img src="public/pagina.PNG" alt="Recetas y bebidas"/>
+App que consiste en la búsqueda la receta de una bebida,
+dando como resultado una ventana modal en que aparece el  producto elegido con la opción de añadirlo a Favoritos, del cual también puedes eliminarlo.
+
+<b>Proyecto: <a href="https://melodic-malasada-78a79f.netlify.app" target="_blank">Buscador de bebidas y recetas</a></b>
+
+### Idea del proyecto 
+Este proyecto fue realizado durante el curso de <a href="https://www.udemy.com/course/react-de-principiante-a-experto-creando-mas-de-10-aplicaciones/?couponCode=KEEPLEARNING">React y TypeScript</a>
+
+### Tecnologías aplicadas
+
+<ul>
+  <li>React</li>
+  <li>TypeScript</li>
+  <li>Tailwind</li>
+  <li>React Router</li>
+  <li>ZUSTAND</li>
+  <li>Zod</li>
+  <li>API</li>
+</ul>
 
 ## React Router
-<p>En este proyecto se introducirá React Router.</p>
+En este proyecto se introducirá React Router.
 
 ### ¿Qué es?
-<p> Es una librería muy cómun en REACT con múltiples páginas </p>
+Es una librería muy cómun en REACT con múltiples páginas
 Es de los creadores de Remix Run. 
 En las últimas versiones es prácticamente un framework de React. 
 
@@ -75,6 +90,48 @@ cliquea <a href="https://www.thecocktaildb.com/api.php">aquí</a>.
 
 ## Headless UI 
 
-Utilizada para la ventana modal.
+Biblioteca utilizada para la ventana modal. (instalar <a href="https://headlessui.com/react/dialog">aquí</a>).
 
-Click <a href="https://headlessui.com/react/dialog">aquí</a>.
+## Iconos
+Para los iconos de la notificación se ha utilizado @heroicons/react (instalar <a href="https://www.npmjs.com/package/@heroicons/react">aquí</a>)
+
+## Performance para la app con React Router DOM
+
+Cuando se realiza un `npm run build` se crea un solo archivo de javaScript. Así, cuando el usuario visita la página, descarga todo el archivo completo. Esto lleva a que se cargue información innecesaria, como páginas que el usuario aún no ha visitado. 
+
+Esto puede solucionarse de la siguiente forma:
+
+<p style="color:yellow">router.tsx</p>
+
+```
+import { lazy, Suspense } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Layout from './layouts/Layout'
+
+const IndexPage = lazy(() => import('./views/IndexPage'))
+const FavoritesPage = lazy(()=> import('./views/FavoritesPage') )
+
+export default function AppRouter() {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route element={<Layout />}>
+                    <Route path='/' element={
+                        <Suspense fallback="Cargando...">
+                            <IndexPage />
+                        </Suspense>
+                    } index />
+                    <Route path='/favoritos' element={
+                        <Suspense fallback="Cargando...">
+                            <FavoritesPage />
+                        </Suspense>
+                    } />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    )
+}
+
+```
+
+Lo siguiente es realizar un build. Para comprobarlo, se abre la página en el navegador con `npm run preview` y se verifica que se van descargando los archivos uno a uno. 
