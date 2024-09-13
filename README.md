@@ -10,6 +10,8 @@ Octavo proyecto realizado durante el curso de <a href="https://www.udemy.com/cou
 
 <a href="https://github.com/antii16/crypto-react"> Ver proyecto anterior </a> 
 
+<a href="https://github.com/antii16/rest_api_typescript_frontend"> Ver proyecto siguiente </a> 
+
 ### Tecnologías aplicadas
 
 <ul>
