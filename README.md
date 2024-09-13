@@ -6,7 +6,9 @@ dando como resultado una ventana modal en que aparece el  producto elegido con l
 <b>Proyecto: <a href="https://melodic-malasada-78a79f.netlify.app" target="_blank">Buscador de bebidas y recetas</a></b>
 
 ### Idea del proyecto 
-Este proyecto fue realizado durante el curso de <a href="https://www.udemy.com/course/react-de-principiante-a-experto-creando-mas-de-10-aplicaciones/?couponCode=KEEPLEARNING">React y TypeScript</a>
+Octavo proyecto realizado durante el curso de <a href="https://www.udemy.com/course/react-de-principiante-a-experto-creando-mas-de-10-aplicaciones/?couponCode=KEEPLEARNING">React y TypeScript</a>
+
+<a href="https://github.com/antii16/crypto-react"> Ver proyecto anterior </a> 
 
 ### Tecnologías aplicadas
 
